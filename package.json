@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@kararty/dank-twitch-irc": "^5.0.0",
+    "dotenv": "^16.0.2"
+  }
+}
