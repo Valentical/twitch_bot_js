@@ -1,14 +1,16 @@
-require("dotenv").config();
+const { handleReconnectMessage } = require("@kararty/dank-twitch-irc");
+const { client } = require(`./utils/client.js`); 
 
-const { ChatClient } = require("@kararty/dank-twitch-irc");
-const client = new ChatClient(process.env.USERNAME, process.env.TWITCH_OAUTH_TOKEN);
-const prefix = "?";
+global.bot = {};
+bot.Config = require("./config.json");
+bot.Commands = require("./utils/commands.js");
+bot.Client = client;
 
 client.on("PRIVMSG", (msg) => {
   const invisChar = invisChar = new RegExp(/[\u034f\u2800\u{E0000}\u180e\ufeff\u2000-\u200d\u206D]/gu);
   const message = msg.messageText.replace(invisChar, "").trimEnd();
   const content = message.split(/\s+/g);
-  const commandName = content[0].sllice(prefix.length).toLowerCase();
+  const commandName = content[0].slice(bot.Config.bot.prefix.length).toLowerCase();
   const args = content.slice(1);
   const context = {
         user: {
@@ -39,27 +41,7 @@ client.on("PRIVMSG", (msg) => {
         emotes: msg.emotes,
         tags: msg.ircTags,
     };
+    handle(context) 
 });
 
-client.connect();
-client.joinAll(["valenticall", "markzynk"]);
-
-// let globalCommandCooldown = 5000,
-
-
-
-
-// client.on("ready", () => {
-  //   console.log("Successfully connected to chat");
-  // })
-
-//
-// if (messageText.startsWith("?")) {
-//   return;
-// }
-// command = command.slice(1).toLocaleLowerCase();
-// if (command === "DinkDonk") {
-//   const msg1 = `DinkDonk ${target}`;
-//   fullMessage = [msg1];
-//   client.say(fullMessage);
-// }
+client.joinAll(["valenticall", "markzynk", "kattah"]);
