@@ -46,4 +46,4 @@ client.on("PRIVMSG", (msg) => {
     handle(context) 
 });
 
-client.joinAll(["valenticall", "markzynk", "kattah", "emiru", "elis"]);
+client.joinAll(["valenticall", "markzynk", "kattah", "emiru"]);

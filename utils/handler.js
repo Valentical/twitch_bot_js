@@ -7,6 +7,7 @@ const handle = async (context) => {
         if (!result) return;
         if (result.reply) result.text = `@${context.user.name}, ${result.text}`; 
         await bot.Client.say(context.channel.login, result.text.replace(/\n|\r/g, " ")); 
+    
 
     } catch (err) {
         console.log(err) 
