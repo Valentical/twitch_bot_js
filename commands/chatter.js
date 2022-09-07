@@ -4,9 +4,9 @@ module.exports = {
     name: 'chatters',
     description: 'Chatter count info',
     aliases: [],
-    async execute(client, msg, utils) {
-        channel.log(msg)
+    execute: async context => {
+        const user = context.channel.login
         const c = await got(`http://tmi.twitch.tv/group/user/${user}/chatters`).json()
-        return { text: `there is ${c.chatter_count} chatters in chat`}
+        return { text: `There is ${c.chatter_count} chatters`}
     },
 };
