@@ -6,6 +6,7 @@ module.exports = {
     aliases: [],
     execute: async context => {
         try {
+            await sleep(ms);
             return {
                 text: ``,
                 reply: true,

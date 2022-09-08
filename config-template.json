@@ -1,0 +1,27 @@
+{
+    "bot": {
+        "login": "BOT-NAME",
+        "userID": "BOT-ID",
+        "oauth": "OATH",
+        "prefix": "&"
+    },
+    "owner": {
+        "login": "OWNER-NAME",
+        "userID": "OWNER-ID"
+    },
+    "auth": {
+        "twitch": {
+            "helix": {
+                "token": // "use https://twitchtokengenerator.com",
+                "clientID": "^^^^^^^^^"
+            }
+        }
+        "database": {
+            "host": "",
+            "user": "",
+            "pass": "",
+            "name": "Database Name",
+            "connectionLimit": 50
+        }
+    }
+}

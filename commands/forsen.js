@@ -1,3 +1,5 @@
+const { sleep } = require("../utils/utils");
+
 module.exports = {
     name: "forsen",
     description: "sends a forsen emote",
@@ -6,6 +8,7 @@ module.exports = {
     aliases: [],
     execute: async context => {
         try {
+            await sleep(2000);
             return {
                 text: `valent96Femsen`,
                 reply: false,
