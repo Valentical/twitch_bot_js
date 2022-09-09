@@ -1,17 +1,17 @@
 const { sleep } = require("../utils/utils");
 
 module.exports = {
-    name: "NAME",
-    description: "DESCRIPTION",
+    name: "test",
+    description: "testeez",
     permission: 100,
     cooldown: 5000,
     aliases: [],
     prefix: '&',
     execute: async context => {
         try {
-            await sleep(ms);
+            await sleep(1500);
             return {
-                text: ``,
+                text: `testeez`,
                 reply: true,
             };
         } catch (err) {

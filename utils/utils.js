@@ -44,16 +44,16 @@ exports.sleep = (ms) => {
     return new Promise(resolve => setTimeout(resolve, ms))
 };
 
-exports.query = async (query, data = []) => {
-    return new Promise(async (resolve, reject) => {
-        try {
-            const conn = await utils.pool.getConnection()
-            const res = await conn.query(query, data)
-            conn.release()
-            resolve(res)
-        } catch (err) {
-            reject(err)
-            console.error(err)
-        }
-    })
-};
+// exports.query = async (query, data = []) => {
+//     return new Promise(async (resolve, reject) => {
+//         try {
+//             const conn = await utils.pool.getConnection()
+//             const res = await conn.query(query, data)
+//             conn.release()
+//             resolve(res)
+//         } catch (err) {
+//             reject(err)
+//             console.error(err)
+//         }
+//     })
+// };

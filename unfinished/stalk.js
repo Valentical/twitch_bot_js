@@ -1,5 +1,5 @@
-const config = require('../config.json')
-const utils = require('../utils/utils.js')
+const config = require('../../config.json')
+const utils = require('./utils.js')
 
 module.exports = {
     name: 'stalk',

@@ -6,6 +6,7 @@ module.exports = {
     permission: 100,
     cooldown: 5000,
     aliases: [],
+    prefix: '&',
     execute: async context => {
         try {
             await sleep(2000);

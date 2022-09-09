@@ -1,17 +1,16 @@
 const { sleep } = require("../utils/utils");
 
 module.exports = {
-    name: "NAME",
-    description: "DESCRIPTION",
+    name: "YoungThugJumpingOutOfASkyscraperOnAQuadbikeIntoGunnasHelicopterThenGunnaBlowsUpTheSkyscraper",
+    description: "sends an emote with really long name",
     permission: 100,
     cooldown: 5000,
     aliases: [],
-    prefix: '&',
     execute: async context => {
         try {
-            await sleep(ms);
+            await sleep(1500);
             return {
-                text: ``,
+                text: `YoungThugJumpingOutOfASkyscraperOnAQuadbikeIntoGunnasHelicopterThenGunnaBlowsUpTheSkyscraper`,
                 reply: true,
             };
         } catch (err) {
