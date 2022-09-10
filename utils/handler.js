@@ -22,6 +22,7 @@ const handle = async (context) => {
 
     const key = `${command.name} ${context.user.id} ${context.channel.id}`;
     if(cooldown.has(key)) return;
+    
 
     cooldown.set(key, command.cooldown);
     try {

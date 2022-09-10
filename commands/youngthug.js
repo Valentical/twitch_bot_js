@@ -4,7 +4,7 @@ module.exports = {
     name: "YoungThugJumpingOutOfASkyscraperOnAQuadbikeIntoGunnasHelicopterThenGunnaBlowsUpTheSkyscraper",
     description: "sends an emote with really long name",
     permission: 100,
-    cooldown: 5000,
+    cooldown: 10000,
     aliases: [],
     execute: async context => {
         try {

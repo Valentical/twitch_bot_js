@@ -19,11 +19,11 @@ const shortHumanize = humanize.humanizer({
     },
 });
 
-exports.formatNumber = (num) => {
+module.exports.formatNumber = (num) => {
     return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
 };
 
-exports.humanize = (date, converted) => {
+module.exports.humanize = (date, converted) => {
     let ms = date
     if (!converted) ms = Date.now() - Date.parse(date);
     const options = {
@@ -36,11 +36,11 @@ exports.humanize = (date, converted) => {
     return shortHumanize(ms, options);
 };
 
-exports.randArray = (array) => {
+module.exports.randArray = (array) => {
     return array[Math.floor(Math.random() * array.length)];
 };
 
-exports.sleep = (ms) => {
+module.exports.sleep = (ms) => {
     return new Promise(resolve => setTimeout(resolve, ms))
 };
 
