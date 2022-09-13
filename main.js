@@ -1,19 +1,23 @@
-const { handleReconnectMessage } = require("@kararty/dank-twitch-irc");
-
 global.bot = {};
 bot.Config = require("./config.json");
+require('./utils/db/connection/connection.js');
 const { client } = require(`./utils/client.js`); 
 bot.Commands = require("./utils/commands.js");
+bot.db = require("./utils/db/models/index.js");
 bot.Client = client;
-const handle = require("./utils/handler.js")
+const handle = require("./utils/handler.js");
 
-client.on("PRIVMSG", (msg) => {
-  const invisChar = new RegExp(/[\u034f\u2800\u{E0000}\u180e\ufeff\u2000-\u200d\u206D]/gu);
-  const message = msg.messageText.replace(invisChar, "").trimEnd();
-  const content = message.split(/\s+/g);
-  const commandName = content[0].slice(bot.Config.bot.prefix.length).toLowerCase();
-  const args = content.slice(1);
-  const context = {
+client.on("PRIVMSG", async (msg) => {
+    const invisChar = new RegExp(/[\u034f\u2800\u{E0000}\u180e\ufeff\u2000-\u200d\u206D]/gu);
+    const message = msg.messageText.replace(invisChar, "").trimEnd();
+    let userData = await bot.db.User.findOne({ id: msg.senderUserID });
+    if (!userData) {
+        userData = await bot.db.User.create({ id: msg.senderUserID, lastMessage: message, username: msg.senderUsername })
+    };
+    const content = message.split(/\s+/g);
+    const commandName = content[0].slice(bot.Config.bot.prefix.length).toLowerCase();
+    const args = content.slice(1);
+    const context = {
         user: {
             id: msg.senderUserID,
             name: msg.displayName,
@@ -35,7 +39,6 @@ client.on("PRIVMSG", (msg) => {
             text: message,
             time: Date.parse(msg.serverTimestamp),
             args,
-            // params,
         },
         isAction: msg.isAction,
         timestamp: msg.serverTimestampRaw,

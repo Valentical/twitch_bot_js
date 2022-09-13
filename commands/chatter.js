@@ -5,7 +5,7 @@ const { sleep } = require("../utils/utils");
 module.exports = {
     name: 'chatters',
     description: 'Chatter count info',
-    permission: 100,
+    permission: 1,
     cooldown: 5000,
     aliases: [],
     execute: async context => {

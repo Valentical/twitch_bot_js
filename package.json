@@ -1,11 +1,13 @@
 {
   "dependencies": {
     "@kararty/dank-twitch-irc": "^5.0.0",
+    "dank-twitch-irc": "^4.3.0",
     "dotenv": "^16.0.2",
     "got": "^11.8.3",
     "humanize": "^0.0.9",
     "humanize-duration": "^3.27.3",
     "ioredis": "^5.2.3",
-    "mariadb": "^3.0.1"
+    "mariadb": "^3.0.1",
+    "mongoose": "^6.6.0"
   }
 }

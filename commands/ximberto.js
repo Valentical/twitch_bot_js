@@ -3,7 +3,7 @@ const { sleep } = require("../utils/utils");
 module.exports = {
     name: "ximberto",
     description: "sends an emote",
-    permission: 100,
+    permission: 1,
     cooldown: 5000,
     aliases: [],
     prefix: '&',

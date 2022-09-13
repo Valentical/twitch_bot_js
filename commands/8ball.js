@@ -9,7 +9,7 @@ const answers = ["as I see it, yes.", "ask again later.", "better not tell you n
 module.exports = {
     name: "8ball",
     description: "random 8ball fortune",
-    permission: 100,
+    permission: 1,
     cooldown: 5000,
     aliases: [],
     prefix: '&',

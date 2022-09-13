@@ -21,7 +21,7 @@ const handle = async (context) => {
         command = bot.Commands.get(context.message.command)};
 
     const key = `${command.name} ${context.user.id} ${context.channel.id}`;
-    if(cooldown.has(key)) return;
+    if (cooldown.has(key)) return;
     
 
     cooldown.set(key, command.cooldown);
