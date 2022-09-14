@@ -15,8 +15,8 @@ module.exports = {
     execute: async context => {
         const jokeAPI = {
             dadjoke: async () => {
-                const { dadjoke } = await got("https://icanhazdadjoke.com/").json()
-                return { text: dadjoke, reply: false }
+                const { joke }  = await got("https://icanhazdadjoke.com/").json()
+                return { text: joke, reply: false }
             },
             momjoke: async () => {
                 const momjoke = utils.randArray(data1);
@@ -27,7 +27,7 @@ module.exports = {
                 return { text: sciencejoke, reply: false }
             },
         }
-        const joke = Object.keys(jokeAPI)
+        const joke1 = Object.keys(jokeAPI)
 
         switch (this.name) {
             case "dadjoke":
@@ -40,7 +40,7 @@ module.exports = {
                 return await jokeAPI['sciencejoke']()
 
             default:
-                const api = jokeAPI[utils.randArray(joke)]
+                const api = jokeAPI[utils.randArray(joke1)]
                 await sleep(2000)
                 return await api()
                 
