@@ -1,0 +1,3 @@
+Count the usage of 7tv emotes
+stalk command
+&commands or &help to show all of the commands

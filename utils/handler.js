@@ -3,7 +3,6 @@ const utils = require('./utils.js')
 const cooldown = require('./cooldown.js')
 // const { pool, redis } = require('../unfinished/connections.js')
 
-
 const handle = async (context) => {
     var nonPrefixCommand = false;
     if(!context.message.content[0].startsWith(bot.Config.bot.prefix)) {
@@ -37,4 +36,4 @@ const handle = async (context) => {
     }
 }
 
-module.exports = handle;
+module.exports = handle
