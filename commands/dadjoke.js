@@ -10,7 +10,7 @@ module.exports = {
     prefix: '&',
     execute: async context => {
         await sleep(2000)
-        const { joke } = await got("https://icanhazdadjoke.com/j/kOfaUvP7Muc").json()
+        const { joke } = await got("https://icanhazdadjoke.com/").json()
         return { text: joke, reply: false }
     },
 };
