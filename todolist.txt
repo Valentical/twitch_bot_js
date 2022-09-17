@@ -1,2 +1,2 @@
 Count the usage of 7tv emotes
-stalk command
+make it so some of the commands arent executable when the channel is live

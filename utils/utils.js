@@ -3,37 +3,29 @@ const got = require('got')
 const humanize = require('humanize-duration')
 const utils = this;
 
-const shortHumanize = humanize.humanizer({
-    language: 'shortEn',
-    languages: {
-        shortEn: {
-            y: () => 'y',
-            mo: () => 'mo',
-            w: () => 'w',
-            d: () => 'd',
-            h: () => 'h',
-            m: () => 'm',
-            s: () => 's',
-            ms: () => 'ms',
-        },
-    },
-});
-
-module.exports.formatNumber = (num) => {
-    return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
-};
-
-module.exports.humanize = (date, converted) => {
-    let ms = date
-    if (!converted) ms = Date.now() - Date.parse(date);
+module.exports.humanize = (ms) => {
     const options = {
-        units: ['y', 'mo', 'd', 'h', 'm', 's'],
+        language: "shortEn",
+        languages: {
+            shortEn: {
+                y: () => "y",
+                mo: () => "mo",
+                w: () => "w",
+                d: () => "d",
+                h: () => "h",
+                m: () => "m",
+                s: () => "s",
+                ms: () => "ms",
+            },
+        },
+        units: ["y", "d", "h", "m", "s"],
         largest: 3,
         round: true,
-        delimiter: ' ',
-        spacer: '',
-    };
-    return shortHumanize(ms, options);
+        conjunction: " and ",
+        spacer: "",
+
+    }
+    return humanize(ms, options);
 };
 
 module.exports.randArray = (array) => {

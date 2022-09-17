@@ -17,10 +17,19 @@ const userSchema = new Schema(
         permission: {
             type: Number,
             default: 1,
-        }
+        },
+        channel: {
+            type: String,
+            required: true,
+        },
+        timestamp: {
+            type: Number,
+            required: true,
+        },
     },
     {
-        timestamps: true
+        timestamps: true,
+        strict: false
     }
 );
 
