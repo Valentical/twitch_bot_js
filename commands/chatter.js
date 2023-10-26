@@ -11,7 +11,7 @@ module.exports = {
     execute: async context => {
         await sleep(2000);
         const user = context.channel.login
-        const c = await got(`http://tmi.twitch.tv/group/user/${user}/chatters`).json()
+        const c = await got(`https://api.markzynk.com/twitch/chatters/${user}`).json()
         return { text: `There are ${c.chatter_count} chatters`}
     },
 };

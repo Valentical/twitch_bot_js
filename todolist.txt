@@ -1,2 +1,4 @@
 Count the usage of 7tv emotes
 make it so some of the commands arent executable when the channel is live
+Ping command
+Database of all logs
