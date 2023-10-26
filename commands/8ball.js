@@ -12,7 +12,6 @@ module.exports = {
     permission: 1,
     cooldown: 5000,
     aliases: [],
-    prefix: '&',
     execute: async context => {
         await sleep(2000)
     return { text: utils.randArray(answers), reply: true }

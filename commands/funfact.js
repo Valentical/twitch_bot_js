@@ -8,7 +8,6 @@ module.exports = {
     permission: 1,
     cooldown: 5000,
     aliases: [],
-    prefix: '&',
     execute: async context => {
         const year = r(2017, new Date().getFullYear())
         const randomDate = new Date(r(1, 12), year)

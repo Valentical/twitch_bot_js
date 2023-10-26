@@ -7,7 +7,6 @@ module.exports = {
     permission: 1,
     cooldown: 5000,
     aliases: [],
-    prefix: '&',
     execute: async context => {
         await sleep(2000)
         const data = await got(`http://www.boredapi.com/api/activity?participants=1`).json()

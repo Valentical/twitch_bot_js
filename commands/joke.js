@@ -11,7 +11,6 @@ module.exports = {
     permission: 1,
     cooldown: 5000,
     aliases: [],
-    prefix: '&',
     execute: async context => {
         const jokeAPI = {
             dadjoke: async () => {

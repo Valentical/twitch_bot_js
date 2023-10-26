@@ -28,6 +28,7 @@ client.on("PRIVMSG", async (msg) => {
             badgesRaw: msg.badgesRaw,
             badges: msg.badges,
             color: msg.color,
+            targetid: msg.channelID, 
         },
         channel: {
             id: msg.channelID,
@@ -51,4 +52,5 @@ client.on("PRIVMSG", async (msg) => {
     handle(context)
 });
 
-client.joinAll(["valenticall", "markzynk", "kattah", "emiru", "elis"]);
+
+client.joinAll(["valenticall", "markzynk", "oshgay", "emiru", "elis", "pank0xd" ]);

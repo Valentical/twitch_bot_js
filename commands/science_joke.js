@@ -7,7 +7,6 @@ module.exports = {
     permission: 1,
     cooldown: 5000,
     aliases: [],
-    prefix: '&',
     execute: async context => {
         await utils.sleep(2000)
         const joke = utils.randArray(data);
