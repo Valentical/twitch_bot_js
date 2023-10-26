@@ -1,0 +1,13 @@
+{
+    "bot": {
+        "login": "Valenticall",
+        "userID": "466267747",
+        "oauth": "oauth:b3rs7bwr15loafk7njufp27ljylnb1",
+        "prefix": "&"
+    },
+    "owner": {
+        "login": "Valenticall",
+        "userID": "466267747"
+    },
+    "MONGODB_URI": "mongodb+srv://Valentical:Sisijaja1@twitchbotcluser.xcdalhq.mongodb.net/?"
+}
