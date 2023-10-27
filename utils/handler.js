@@ -2,6 +2,7 @@ const config = require('../config.json')
 const utils = require('./utils.js')
 const cooldown = require('./cooldown.js')
 // const { pool, redis } = require('../unfinished/connections.js')
+const got = require('got');
 
 const handle = async (context) => {
     var nonPrefixCommand = false;
@@ -10,6 +11,8 @@ const handle = async (context) => {
             nonPrefixCommand = true;
             else return;
     }
+    const live = await got(`https://api.ivr.fi/v2/twitch/user?login=${context.channel.login}`).json()
+    if (live[0].stream !== null) return
 
     let command
 
