@@ -41,6 +41,8 @@ client.on("PRIVMSG", async (msg) => {
             command: commandName,
             text: message,
             time: Date.parse(msg.serverTimestamp),
+            timestamp: msg.serverTimestampRaw,
+
             args,
         },
         isAction: msg.isAction,
