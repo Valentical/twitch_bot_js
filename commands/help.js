@@ -7,7 +7,7 @@ module.exports = {
     cooldown: 5000,
     aliases: [],
     execute: async (msg, context) => {
-        let text = `command list: 8ball, bored, cat, chatters, dadjoke, dog, forsen, funfact, joke, nerd, randomdonger, sciencejoke, test, ximberto, stalk`
+        let text = `command list: 8ball, boobatv, bored, cat, chatters, dadjoke, dog, forsen, funfact, hstar, joke, js, nerd, ping, randomdonger, sciencejoke, stalk, test, getuserid, ximberto`
         return { text, reply: false }
     },
 };
