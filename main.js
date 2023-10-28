@@ -9,6 +9,7 @@ bot.db = require("./utils/db/models/index.js");
 bot.Client = client;
 const handle = require("./utils/handler.js");
 
+
 client.on("PRIVMSG", async (msg) => {
     const invisChar = new RegExp(/[\u034f\u2800\u{E0000}\u180e\ufeff\u2000-\u200d\u206D]/gu);
     const message = msg.messageText.replace(invisChar, "").trimEnd();
@@ -16,6 +17,7 @@ client.on("PRIVMSG", async (msg) => {
     if (!userData) {
         userData = await bot.db.User.create({ id: msg.senderUserID, lastMessage: message, username: msg.senderUsername, channel: msg.channelName, timestamp: Date.now() })
     };
+    
     const content = message.split(/\s+/g);
     const commandName = content[0].slice(bot.Config.bot.prefix.length).toLowerCase();
     const args = content.slice(1);

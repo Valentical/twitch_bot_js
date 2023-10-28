@@ -3,6 +3,7 @@ const utils = require('./utils.js')
 const cooldown = require('./cooldown.js')
 // const { pool, redis } = require('../unfinished/connections.js')
 const got = require('got');
+const { sleep } = require("../utils/utils");
 
 const handle = async (context) => {
     var nonPrefixCommand = false;
@@ -14,6 +15,10 @@ const handle = async (context) => {
     
     const live = await got(`https://api.ivr.fi/v2/twitch/user?login=${context.channel.login}`).json()
     if (live[0].stream !== null && context.channel.login !== 'oshgay') return;
+
+    const userState = bot.Client.userStateTracker.channelStates[context.channel.login]; 
+    const highLimits = userState?.isMod || userState?.badges.hasVIP || userState?.badges.hasBroadcaster;  
+    if (context.user.id === config.owner.userID && !highLimits) await sleep(1000)
 
     let command
 

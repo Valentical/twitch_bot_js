@@ -40,7 +40,6 @@ module.exports = {
 
             default:
                 const api = jokeAPI[utils.randArray(joke1)]
-                await sleep(2000)
                 return await api()
                 
             }

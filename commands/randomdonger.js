@@ -9,7 +9,6 @@ module.exports = {
     cooldown: 5000,
     aliases: [],
     execute: async context => {
-        await sleep(2000)
         const donger = utils.randArray(dongers);
         return { text: donger, reply: false };
     },

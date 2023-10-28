@@ -9,7 +9,6 @@ module.exports = {
     cooldown: 5000,
     aliases: [],
     execute: async context => {
-        await sleep(2000);
         const user = context.channel.login
         const c = await got(`https://api.markzynk.com/twitch/chatters/${user}`).json()
         return { text: `There are ${c.chatters.count} chatters`}

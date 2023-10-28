@@ -8,7 +8,6 @@ module.exports = {
     cooldown: 5000,
     aliases: [],
     execute: async context => {
-        await sleep(1500)
         const user = context.message.args[0].toLowerCase().replace('@', '')
         if (!user) return { text: `No user provided`, reply: false }
         const data = await bot.db.User.findOne({ username: user })

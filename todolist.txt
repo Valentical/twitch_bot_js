@@ -1,6 +1,3 @@
-Count the usage of 7tv emotes
-make it so some of the commands arent executable when the channel is live
-js command
 levels
-
+make it so when you're mod it doesnt wait or when other ppl use it 
 

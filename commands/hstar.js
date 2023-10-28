@@ -8,7 +8,6 @@ module.exports = {
     aliases: [],
     execute: async context => {
         try {
-            await sleep(2000);
             return {
                 text: `timeout HStar2005 69420 4Kid`,
                 reply: false,

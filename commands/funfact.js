@@ -11,7 +11,6 @@ module.exports = {
     execute: async context => {
         const year = r(2017, new Date().getFullYear())
         const randomDate = new Date(r(1, 12), year)
-        await sleep(2000)
 
         const data = await got(`https://uselessfacts.net/api/posts?d=${encodeURIComponent(randomDate.toJSON())}`).json()
         const fact = utils.randArray(data);

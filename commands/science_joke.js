@@ -8,7 +8,6 @@ module.exports = {
     cooldown: 5000,
     aliases: [],
     execute: async context => {
-        await utils.sleep(2000)
         const joke = utils.randArray(data);
         return { text: joke }
     },

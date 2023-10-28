@@ -13,7 +13,6 @@ module.exports = {
     cooldown: 5000,
     aliases: [],
     execute: async context => {
-        await sleep(2000)
     return { text: utils.randArray(answers), reply: true }
 },
 };

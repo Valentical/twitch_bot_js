@@ -10,7 +10,6 @@ module.exports = {
     cooldown: 5000,
     aliases: [],
     execute: async context => {
-        await sleep(2000)
         const boobas = await got('https://api.booba.tv/').json()
         if (!boobas?.length) return { text: "no channels available at the moment", reply: true }
 

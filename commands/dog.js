@@ -8,7 +8,6 @@ module.exports = {
     cooldown: 5000,
     aliases: [],
     execute: async context => {
-        await sleep(2000)
         const data = await got(`https://dog.ceo/api/breeds/image/random`).json()
         return { text: data.message, reply: false }
     },

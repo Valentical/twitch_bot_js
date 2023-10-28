@@ -12,7 +12,6 @@ module.exports = {
     cooldown: 5000,
     aliases: [],
     execute: async context => {
-        await sleep(2000);
         const memoryUsage = process.memoryUsage().heapUsed/1024/1024;
         const seconds = process.uptime();
         const minutes = Math.floor(seconds % (60*60) / 60);

@@ -8,7 +8,6 @@ module.exports = {
     aliases: [],
     execute: async context => {
         try {
-            await sleep(2000);
             return {
                 text: `valent96Old`,
                 reply: false,

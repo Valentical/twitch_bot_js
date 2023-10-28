@@ -8,7 +8,6 @@ module.exports = {
     cooldown: 5000,
     aliases: [],
     execute: async context => {
-        await sleep(2000)
         const data = await got(`http://numbersapi.com/random/`).text()
         return { text: data, reply: true }
     },

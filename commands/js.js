@@ -10,7 +10,6 @@ module.exports = {
     cooldown: 5000,
     aliases: [],
     execute: async context => {
-        await sleep(2000)
         if (context.user.id !== config.owner.userID) return
         function ev(code)
         {

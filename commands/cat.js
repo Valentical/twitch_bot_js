@@ -8,7 +8,6 @@ module.exports = {
     cooldown: 5000,
     aliases: [],
     execute: async context => {
-        await sleep(2000)
         const cat = await got('https://api.thecatapi.com/v1/images/search').json()
         return { text: `${cat[0].url}`, reply: false }
     },
