@@ -23,6 +23,6 @@ module.exports = {
         const latency = (buh2 - buh1).toFixed(0);
         const prefix  = config.bot.prefix
         
-        return { text: `Used memory: ${memoryUsage.toFixed(1)}MB; Uptime: ${hours.toFixed(0)} hours, ${minutes.toFixed(0)} minutes; ${latency}ms; Prefix: ${prefix} `}
+        return { text: ` ${latency}ms; Uptime: ${hours.toFixed(0)} hours, ${minutes.toFixed(0)} minutes; Used memory: ${memoryUsage.toFixed(1)}MB; Prefix: ${prefix} `}
     },
 };

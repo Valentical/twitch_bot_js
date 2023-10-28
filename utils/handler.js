@@ -11,8 +11,9 @@ const handle = async (context) => {
             nonPrefixCommand = true;
             else return;
     }
+    
     const live = await got(`https://api.ivr.fi/v2/twitch/user?login=${context.channel.login}`).json()
-    if (live[0].stream !== null) return
+    if (live[0].stream !== null && context.channel.login !== 'oshgay') return;
 
     let command
 
