@@ -17,7 +17,7 @@ client.on("PRIVMSG", async (msg) => {
     if (!userData) {
         userData = await bot.db.User.create({ id: msg.senderUserID, lastMessage: message, username: msg.senderUsername, channel: msg.channelName, timestamp: Date.now() })
     };
-    
+
     const content = message.split(/\s+/g);
     const commandName = content[0].slice(bot.Config.bot.prefix.length).toLowerCase();
     const args = content.slice(1);
@@ -30,7 +30,7 @@ client.on("PRIVMSG", async (msg) => {
             badgesRaw: msg.badgesRaw,
             badges: msg.badges,
             color: msg.color,
-            targetid: msg.channelID, 
+            targetid: msg.channelID,
         },
         channel: {
             id: msg.channelID,
@@ -55,4 +55,4 @@ client.on("PRIVMSG", async (msg) => {
 });
 
 
-client.joinAll(["valenticall", "markzynk", "oshgay", "emiru", "elis", "pank0xd", '00rianaa'  ]);
+client.joinAll(["valenticall", "markzynk", "oshgay", "emiru", "elis", "pank0xd", '00rianaa', 'ryanpotat']);
