@@ -10,18 +10,20 @@ const handle = async (context) => {
 
     const commands = await bot.db.cmd.find({ commandName: context.message.content[0], channel: context.channel.id });
 
-    for (const command of commands) {
-        if (!command) return;
+    for (const command2 of commands) {
+        if (!command2) return;
 
-        if (!command.channel.includes(context.channel.id)) continue;
+        if (!command2.channel.includes(context.channel.id)) continue;
 
-        const key = `${command.commandName} ${context.user.id} ${context.channel.id}`;
+        const key = `${command2.commandName} ${context.user.id} ${context.channel.id}`;
         if (cooldown.has(key)) return;
 
-        cooldown.set(key, command.cooldown);
+        cooldown.set(key, command2.cooldown);
 
-        await bot.Client.say(context.channel.login, command.response.replace(/\n|\r/g, " "));
+        await bot.Client.say(context.channel.login, command2.response.replace(/\n|\r/g, " "));
     }
+
+    if (!context.message.content[0].startsWith(bot.Config.bot.prefix)) return;
 
     const live = await got(`https://api.ivr.fi/v2/twitch/user?login=${context.channel.login}`).json()
     if (live[0].stream !== null && context.channel.login !== 'oshgay') return;
@@ -30,11 +32,7 @@ const handle = async (context) => {
     const highLimits = userState?.isMod || userState?.badges.hasVIP || userState?.badges.hasBroadcaster;
     if (context.user.id === config.owner.userID && !highLimits) await sleep(1000)
 
-    let command
-
-
-
-    command = bot.Commands.get(context.message.command);
+    const command = bot.Commands.get(context.message.command)
 
     if (!command) return;
 
@@ -53,6 +51,10 @@ const handle = async (context) => {
         console.log(err)
 
     }
+
+
 }
 
+
 module.exports = handle
+

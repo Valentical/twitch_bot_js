@@ -8,6 +8,7 @@ bot.Commands = require("./utils/commands.js");
 bot.db = require("./utils/db/models/index.js");
 bot.Client = client;
 const handle = require("./utils/handler.js");
+const nonprefix = require("./utils/handler.js")
 
 
 client.on("PRIVMSG", async (msg) => {
@@ -52,7 +53,9 @@ client.on("PRIVMSG", async (msg) => {
     };
     console.log(`[#${msg.channelName}] ${msg.displayName}: ${msg.messageText}`);
     handle(context)
+    nonprefix(context)
 });
+
 
 
 client.joinAll(["valenticall", "markzynk", "oshgay", "emiru", "elis", "pank0xd", '00rianaa', 'ryanpotat']);

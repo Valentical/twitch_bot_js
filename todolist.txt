@@ -1,3 +1,4 @@
 levels
-make it so when you're mod it doesnt wait or when other ppl use it 
+roulette
+pyramid
 
