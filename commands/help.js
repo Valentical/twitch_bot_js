@@ -1,4 +1,4 @@
-const { sleep } = require("../utils/utils");
+
 
 module.exports = {
     name: "help",
@@ -7,7 +7,13 @@ module.exports = {
     cooldown: 5000,
     aliases: [],
     execute: async (msg, context) => {
-        let text = `command list: 8ball, boobatv, bored, cat, chatters, dadjoke, dog, forsen, funfact, hstar, joke, js, nerd, ping, randomdonger, sciencejoke, stalk, test, getuserid, ximberto`
-        return { text, reply: false }
+        const commands = [];
+        bot.Commands.Commands.forEach((command) => commands.push(command.name))
+
+
+
+        return {
+            text: `command list: ${commands.join(', ')}`, reply: false
+        }
     },
 };
