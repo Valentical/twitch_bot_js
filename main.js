@@ -53,7 +53,6 @@ client.on("PRIVMSG", async (msg) => {
     };
     console.log(`[#${msg.channelName}] ${msg.displayName}: ${msg.messageText}`);
     handle(context)
-    nonprefix(context)
 });
 
 
