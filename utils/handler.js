@@ -12,6 +12,7 @@ const handle = async (context) => {
 
     for (const command2 of commands) {
         if (!command2) return;
+        if (context.user.id === config.bot.userID && command2) return;
 
         if (!command2.channel.includes(context.channel.id)) continue;
 
