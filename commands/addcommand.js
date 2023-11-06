@@ -1,4 +1,5 @@
 const got = require('got')
+const config = require(`../config.json`)
 
 module.exports = {
     name: 'addcommand',
