@@ -5,7 +5,6 @@ const { sleep } = require("../utils/utils");
 module.exports = {
     name: "pyramid",
     description: "changes the level of a user",
-    permission: 1,
     cooldown: 5000,
     aliases: [],
     execute: async context => {

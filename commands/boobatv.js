@@ -1,12 +1,11 @@
 const got = require('got');
-const { sleep } = require ('../utils/utils.js')
+const { sleep } = require('../utils/utils.js')
 const { nanoid } = require('nanoid');
 const utils = require('../utils/utils.js');
 
 module.exports = {
     name: 'boobatv',
     description: 'huge booba and ass lvl 6 gyat',
-    permission: 1,
     cooldown: 5000,
     aliases: [],
     execute: async context => {

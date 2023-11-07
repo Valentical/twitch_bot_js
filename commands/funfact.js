@@ -5,7 +5,6 @@ const utils = require('../utils/utils.js')
 module.exports = {
     name: 'funfact',
     description: 'Random fun fact',
-    permission: 1,
     cooldown: 5000,
     aliases: [],
     execute: async context => {

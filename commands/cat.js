@@ -4,7 +4,6 @@ const { sleep } = require('../utils/utils.js')
 module.exports = {
     name: 'cat',
     description: "Sends a random picture of a cat",
-    permission: 1,
     cooldown: 5000,
     aliases: [],
     execute: async context => {

@@ -8,7 +8,6 @@ const config = require("../config.json");
 module.exports = {
     name: 'ping',
     description: 'shows server info',
-    permission: 1,
     cooldown: 5000,
     aliases: [],
     execute: async context => {

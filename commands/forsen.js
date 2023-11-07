@@ -3,7 +3,6 @@ const { sleep } = require("../utils/utils");
 module.exports = {
     name: "forsen",
     description: "sends a forsen emote",
-    permission: 1,
     cooldown: 5000,
     aliases: [],
     execute: async context => {

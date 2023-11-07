@@ -4,7 +4,6 @@ const { sleep } = require('../utils/utils.js')
 module.exports = {
     name: 'bored',
     description: "Tells the user a random activity to do",
-    permission: 1,
     cooldown: 5000,
     aliases: [],
     execute: async context => {

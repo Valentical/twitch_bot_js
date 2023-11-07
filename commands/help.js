@@ -3,7 +3,6 @@
 module.exports = {
     name: "help",
     description: "sends a list of every command",
-    permission: 1,
     cooldown: 5000,
     aliases: [],
     execute: async (msg, context) => {
