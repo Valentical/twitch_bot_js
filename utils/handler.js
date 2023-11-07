@@ -4,9 +4,11 @@ const cooldown = require('./cooldown.js')
 // const { pool, redis } = require('../unfinished/connections.js')
 const got = require('got');
 const { sleep } = require("../utils/utils");
+const channelsWithoutCommands = require("../data/channelsWithoutCommands.json");
 
 const handle = async (context) => {
 
+    if (channelsWithoutCommands.includes(context.channel.login)) return;
 
     const commands = await bot.db.cmd.find({ commandName: context.message.content[0], channel: context.channel.id });
 
