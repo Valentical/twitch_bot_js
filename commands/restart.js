@@ -5,7 +5,6 @@ const { exec } = require("child_process");
 module.exports = {
     name: 'restart',
     description: "restarts the bot",
-    permission: 1,
     cooldown: 5000,
     aliases: [],
     execute: async context => {

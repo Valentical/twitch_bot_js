@@ -4,7 +4,6 @@ const utils = require('../utils/utils.js')
 module.exports = {
     name: 'stalk',
     description: 'Last seen chat message of an user',
-    permission: 1,
     cooldown: 5000,
     aliases: [],
     execute: async context => {

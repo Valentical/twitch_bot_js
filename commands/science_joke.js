@@ -4,7 +4,6 @@ const utils = require('../utils/utils.js')
 module.exports = {
     name: "sciencejoke",
     description: "sends a random science joke",
-    permission: 1,
     cooldown: 5000,
     aliases: [],
     execute: async context => {

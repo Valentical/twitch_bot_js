@@ -5,10 +5,25 @@ const cooldown = require('./cooldown.js')
 const got = require('got');
 const { sleep } = require("../utils/utils");
 const channelsWithoutCommands = require("../data/channelsWithoutCommands.json");
+const banphrases = require("../data/banphrases.json");
+
+const helix = got.extend({
+    prefixUrl: 'https://api.twitch.tv/helix',
+    responseType: 'json',
+    throwHttpErrors: false,
+    headers: {
+        'Authorization': config.twitchAuth,
+        'Client-Id': config.twitchClientID
+    }
+})
 
 const handle = async (context) => {
 
     if (channelsWithoutCommands.includes(context.channel.login)) return;
+
+    /*if (banphrases.includes(context.message.text)) {
+        return helix.timeout
+    } */
 
     const commands = await bot.db.cmd.find({ commandName: context.message.content[0], channel: context.channel.id });
 
