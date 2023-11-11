@@ -21,24 +21,24 @@ const handle = async (context) => {
 
     if (channelsWithoutCommands.includes(context.channel.login)) return;
 
-    const options = {
-        method: 'POST',
-        headers: {
-            Authorization: `${config.helix.twitchAuth}`,
-            'Client-Id': `${config.helix.twitchClientID}`,
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            data: {
-                user_id: `${context.user.id}`,
-                duration: 1,
-                reason: 'testing'
-            }
-        })
-    };
-    if (banphrases.includes(context.message.text)) {
-        timeout = await got(`https://api.twitch.tv/helix/moderation/bans?broadcaster_id=${context.channel.id}&moderator_id=${config.bot.userID}`, options);
-    }
+    /*  const options = {
+          method: 'POST',
+          headers: {
+              Authorization: `${config.helix.twitchAuth}`,
+              'Client-Id': `${config.helix.twitchClientID}`,
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+              data: {
+                  user_id: `${context.user.id}`,
+                  duration: 1,
+                  reason: 'testing'
+              }
+          })
+      };
+      if (banphrases.includes(context.message.text)) {
+          timeout = await got(`https://api.twitch.tv/helix/moderation/bans?broadcaster_id=${context.channel.id}&moderator_id=${config.bot.userID}`, options);
+      } */
 
     const commands = await bot.db.cmd.find({ commandName: context.message.content[0], channel: context.channel.id });
 

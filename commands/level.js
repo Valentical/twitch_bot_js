@@ -14,7 +14,7 @@ module.exports = {
     cooldown: 5000,
     aliases: [],
     execute: async context => {
-        let user = context.message.args[0].toLowerCase() ?? context.user.login
+        let user = context.message.args[0]?.toLowerCase() ?? context.user.login
 
         const userInfo = await bot.db.level.findOne({ username: user })
 

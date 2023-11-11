@@ -18,6 +18,20 @@ client.on("PRIVMSG", async (msg) => {
     if (!userData) {
         userData = await bot.db.User.create({ id: msg.senderUserID, lastMessage: message, username: msg.senderUsername, channel: msg.channelName, timestamp: Date.now() })
     };
+    let user = await bot.db.username.findOne({ id: msg.senderUserID })
+    if (!user) {
+        user = await bot.db.username.create({ id: msg.senderUserID, username: msg.senderUsername, previousUsername: [] })
+    }
+    if (user.username !== msg.senderUsername) {
+        user = await bot.db.username.findOneAndUpdate(
+            { _id: user._id },
+            {
+                username: msg.senderUsername,
+                $push: { previousUsername: user.username },
+            },
+            { new: true }
+        );
+    }
 
     const content = message.split(/\s+/g);
     const commandName = content[0].slice(bot.Config.bot.prefix.length).toLowerCase();
