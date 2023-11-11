@@ -9,7 +9,8 @@ module.exports = {
     cooldown: 5000,
     aliases: [],
     execute: async context => {
-        if (context.user.id !== config.owner.userID) return
+        const userInfo = await bot.db.level.findOne({ id: context.user.id })
+        if (!userInfo || userInfo.level < 3) return
         function ev(code) {
             return eval(code);
         }

@@ -8,8 +8,7 @@ module.exports = {
     aliases: [],
     execute: async context => {
         const userInfo = await bot.db.level.findOne({ id: context.user.id })
-        if (!userInfo || userInfo.level < 3) return
-
+        if (!userInfo || userInfo.level < 5) return
         bot.db.cmd.create({
             commandName: context.message.args[0],
             response: context.message.args.slice(1).join(" "),
