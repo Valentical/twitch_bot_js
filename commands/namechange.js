@@ -7,7 +7,7 @@ module.exports = {
     aliases: ["nc"],
     execute: async context => {
         let user = context.message.args[0]?.toLowerCase() ?? context.user.login
-        const userInfo = await bot.db.username.findOne({ username: user })
+        const userInfo = await bot.db.User.findOne({ username: user })
 
         if (!userInfo) {
             return {

@@ -16,14 +16,11 @@ client.on("PRIVMSG", async (msg) => {
     const message = msg.messageText.replace(invisChar, "").trimEnd();
     let userData = await bot.db.User.findOneAndUpdate({ id: msg.senderUserID }, { lastMessage: message, channel: msg.channelName, timestamp: Date.now() });
     if (!userData) {
-        userData = await bot.db.User.create({ id: msg.senderUserID, lastMessage: message, username: msg.senderUsername, channel: msg.channelName, timestamp: Date.now() })
+        userData = await bot.db.User.create({ id: msg.senderUserID, lastMessage: message, username: msg.senderUsername, channel: msg.channelName, timestamp: Date.now(), previousUsername: [] })
     };
-    let user = await bot.db.username.findOne({ id: msg.senderUserID })
-    if (!user) {
-        user = await bot.db.username.create({ id: msg.senderUserID, username: msg.senderUsername, previousUsername: [] })
-    }
+    let user = await bot.db.User.findOne({ id: msg.senderUserID })
     if (user.username !== msg.senderUsername) {
-        user = await bot.db.username.findOneAndUpdate(
+        user = await bot.db.User.findOneAndUpdate(
             { _id: user._id },
             {
                 username: msg.senderUsername,
