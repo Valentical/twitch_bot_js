@@ -14,19 +14,30 @@ const nonprefix = require("./utils/handler.js")
 client.on("PRIVMSG", async (msg) => {
     const invisChar = new RegExp(/[\u034f\u2800\u{E0000}\u180e\ufeff\u2000-\u200d\u206D]/gu);
     const message = msg.messageText.replace(invisChar, "").trimEnd();
-    let userData = await bot.db.User.findOneAndUpdate({ id: msg.senderUserID }, { lastMessage: message, channel: msg.channelName, timestamp: Date.now() });
-    if (!userData) {
-        userData = await bot.db.User.create({ id: msg.senderUserID, lastMessage: message, username: msg.senderUsername, channel: msg.channelName, timestamp: Date.now(), previousUsername: [] })
-    };
-    if (userData.username !== msg.senderUsername) {
-        user = await bot.db.User.findOneAndUpdate(
-            { _id: userData._id },
-            {
+    async function updateUserInDatabase(msg) {
+        let userData = await bot.db.User.findOneAndUpdate({ id: msg.senderUserID }, { lastMessage: message, channel: msg.channelName, timestamp: Date.now() });
+
+        if (!userData) {
+            userData = await bot.db.User.create({
+                id: msg.senderUserID,
+                lastMessage: message,
                 username: msg.senderUsername,
-                $push: { previousUsername: userData.username },
-            },
-            { new: true }
-        );
+                channel: msg.channelName,
+                timestamp: Date.now(),
+                previousUsername: []
+            });
+        }
+
+        if (userData.username !== msg.senderUsername) {
+            user = await bot.db.User.findOneAndUpdate(
+                { _id: userData._id },
+                {
+                    username: msg.senderUsername,
+                    $push: { previousUsername: userData.username },
+                },
+                { new: true }
+            );
+        }
     }
 
     const content = message.split(/\s+/g);
@@ -63,6 +74,7 @@ client.on("PRIVMSG", async (msg) => {
     };
     console.log(`[#${msg.channelName}] ${msg.displayName}: ${msg.messageText}`);
     handle(context)
+    updateUserInDatabase(msg)
 });
 
 
