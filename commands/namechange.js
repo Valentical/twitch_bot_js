@@ -15,7 +15,7 @@ module.exports = {
                 reply: false,
             };
         }
-        if (!userInfo.previousUsername.length) {
+        if (!userInfo.previousUsername?.length) {
             return {
                 text: `Current Username: ${userInfo.username} | No previous usernames`,
                 reply: false,
