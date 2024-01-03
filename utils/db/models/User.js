@@ -26,6 +26,9 @@ const userSchema = new Schema(
             type: Number,
             required: true,
         },
+        previousUsername: {
+            type: Array,
+        }
     },
     {
         timestamps: true,

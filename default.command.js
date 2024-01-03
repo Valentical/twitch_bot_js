@@ -3,7 +3,6 @@ const { sleep } = require("../utils/utils");
 module.exports = {
     name: "NAME",
     description: "DESCRIPTION",
-    permission: 1,
     cooldown: 5000,
     aliases: [],
     prefix: '&',

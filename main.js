@@ -2,6 +2,7 @@ global.bot = {};
 bot.Config = require("./config.json");
 require('./utils/db/connection/connection.js');
 const { client } = require(`./utils/client.js`);
+const { performance } = require("perf_hooks");
 const { sleep } = require("./utils/utils.js");
 const utils = require("./utils/utils.js");
 bot.Commands = require("./utils/commands.js");
