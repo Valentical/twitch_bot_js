@@ -80,4 +80,4 @@ client.on("PRIVMSG", async (msg) => {
 
 
 
-client.joinAll(["valenticall", "markzynk", "oshgay", "emiru", "pank0xd", '00rianaa', 'ryanpotat', 'elis', 'xqc', 'forsen', 'mizkif', 'bensly_', 'temperzpk']);
+client.joinAll(["valenticall", "markzynk", "oshgay", "emiru", "pank0xd", '00rianaa', 'ryanpotat', 'elis', 'xqc', 'forsen', 'mizkif', 'bensly_', 'temperzpk', '6daves']);
