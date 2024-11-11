@@ -1,22 +1,26 @@
-const got = require('got');
-const config = require('../config.json')
-
-
 module.exports = {
-    name: 'js',
-    description: 'executes a javascript code',
-    cooldown: 5000,
-    aliases: [],
+    name: "eval",
+    cooldown: 0,
+    aliases: ["js"],
+    description: "Evaluates JavaScript code directly in the bot, requires level 3",
     execute: async context => {
-        const userInfo = await bot.db.level.findOne({ id: context.user.id })
-        if (!userInfo || userInfo.level < 3) return
-        function ev(code) {
-            return eval(code);
+        try {
+            const userInfo = await bot.db.level.findOne({ id: context.user.id })
+            if (!userInfo || userInfo.level < 5) return
+
+            let ev;
+            if (context.message.args[0].startsWith('http')) {
+                const res = await got(context.message.args[0]);
+                ev = await eval('(async () => {' + res.body.replace(/„|“/gm, '"') + '})()');
+            } else {
+                ev = await eval('(async () => {' + context.message.args.join(' ').replace(/„|“/gm, '"') + '})()');
+            }
+
+            if (!ev) return null;
+            return { text: String(ev), reply: false };
+
+        } catch (err) {
+            return { text: err.message, reply: true };
         }
-        cuh = context.message.content.toString().replace('&js,', "")
-        wuh = ev(cuh)
-
-
-        return { text: String(wuh) }
     },
 };
